@@ -1,6 +1,23 @@
 import type { SidebarConfig } from '@vuepress/theme-default'
 
 export const sidebarZh: SidebarConfig = {
+  '/zh/USB/enumeration/': [
+    {
+      text: 'USB 2.0 枚举深入讲解',
+      collapsible: true,
+      children: [
+        '/zh/USB/enumeration/README.md',
+        '/zh/USB/enumeration/chapter1.md',
+        '/zh/USB/enumeration/chapter2.md',
+        '/zh/USB/enumeration/chapter3.md',
+        '/zh/USB/enumeration/chapter4.md',
+        '/zh/USB/enumeration/chapter5.md',
+        '/zh/USB/enumeration/chapter6.md',
+        '/zh/USB/enumeration/chapter7.md',
+        '/zh/USB/enumeration/chapter8.md',
+      ],
+    },
+  ],
   '/zh/FreeRTOS/DShanMCU-F103/': [
     {
       text: 'FreeRTOS入门与工程实践',

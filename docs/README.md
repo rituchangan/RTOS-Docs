@@ -39,6 +39,12 @@
 - [【首选】FreeRTOS入门与工程实践-基于STM32F103](./zh/FreeRTOS/DShanMCU-F103/README.md)
 - [FreeRTOS快速入门教程-基于模拟器](./zh/FreeRTOS/simulator/README.md)
 
+## USB学习
+
+### USB教程
+
+- [USB 2.0 枚举深入讲解](./zh/USB/enumeration/README.md)
+
 
 ## RT-Thread学习
 
