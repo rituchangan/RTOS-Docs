@@ -271,12 +271,23 @@ while (p + 1 < end) {
 
 含义：HID 1.11，1 个下级描述符，Report 类型，长度 `0x002E`（46 字节）。
 
-**注意**：Report Descriptor **不在**配置集合里一并返回，而需 Host 再发：
+**注意**：Report Descriptor **不在**配置集合里一并返回，而需 Host 再发类相关的 `GET_DESCRIPTOR`。
 
-- `bmRequestType = 0x81`（IN, Standard, **Interface**）或某些栈用 Class 请求  
-- 实际常见：`GET_DESCRIPTOR`，Recipient=Interface，`wValue=0x2200`，`wIndex=接口号`
+按 **HID 1.11**，读取 Report Descriptor 的典型 Setup 为：
 
-（精确 bmRequestType 以 HID 规范与主机栈为准；设备固件需按自己声明的方式响应。）
+| 字段 | 值 | 含义 |
+|------|-----|------|
+| bmRequestType | `0x81` | IN，**Standard**，**Interface** |
+| bRequest | `0x06` | GET_DESCRIPTOR |
+| wValue | `0x2200` | Type=Report(0x22)，Index=0 |
+| wIndex | 接口号 | 如 `0x0000` |
+| wLength | Report 长度 | 如 `0x002E` |
+
+```text
+81 06 00 22 00 00 2E 00
+```
+
+> 这是 **HID 规范定义的标准请求用法**（Recipient=Interface，Descriptor Type=0x22）。个别主机栈或测试工具也可能发 Class 请求变体；设备固件至少应实现上表这一主流形式，否则 Windows/Linux 枚举 HID 时会在“已 SET_CONFIGURATION、取 Report 失败”处卡住。
 
 ---
 

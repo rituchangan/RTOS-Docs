@@ -275,10 +275,11 @@ void handle_get_descriptor(u16 wValue, u16 wIndex, u16 wLen)
 ### 与规范对齐的检查清单
 
 - [ ] Reset 后地址为 0、状态 Default  
-- [ ] `SET_ADDRESS` 在 Status **之后**生效  
-- [ ] `GET_DESCRIPTOR` 返回长度 = `min(可用, wLength)`，并用短包结束  
+- [ ] `SET_ADDRESS` 在 Status **之后**生效，并在约 **2 ms** 内可响应新地址  
+- [ ] `GET_DESCRIPTOR` 返回长度 = `min(可用, wLength)`，并用短包（或必要时 ZLP）结束  
 - [ ] 未知请求 STALL  
 - [ ] `SET_CONFIGURATION` 后才使能非零 EP  
+- [ ] HID 设备实现 `bmRequestType=0x81` 的 Report Descriptor 读取  
 
 ---
 

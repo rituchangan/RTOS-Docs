@@ -149,7 +149,22 @@ OUT + DATA1 0B + ACK     // Status
 80 06 00 02 00 00 22 00
 ```
 
-返回 34 字节配置集合（见第4章示例布局）。
+**返回 34 字节配置集合（完整十六进制）：**
+
+```text
+09 02 22 00 01 01 00 A0 32    ; Configuration: wTotalLength=0x0022, value=1, 160mA, RemoteWakeup
+09 04 00 00 01 03 01 02 00    ; Interface0: HID Boot Mouse, 1 EP
+09 21 11 01 00 01 22 2E 00    ; HID Desc: HID1.11, Report len=0x002E
+07 05 81 03 08 00 0A          ; EP1 IN Interrupt MPS=8 Interval=10ms
+```
+
+事务级（MPS=64，一次 DATA 即可）：
+
+```text
+SETUP+DATA0+ACK   (ADDR=3)
+IN + DATA1 + 34 字节（上表） + ACK
+OUT + DATA1 0B + ACK
+```
 
 ### G. SET_CONFIGURATION(1)
 
