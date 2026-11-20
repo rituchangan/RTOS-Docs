@@ -33,6 +33,15 @@ export const navbarZh: NavbarConfig = [
     ],
   },
   {
+    text: 'USB教程',
+    children: [
+      {
+        text: 'USB 2.0 枚举深入讲解',
+        link: '/zh/USB/enumeration/',
+      },
+    ],
+  },
+  {
     text: `RTOS学习套件`,
     children: [
       {

@@ -21,6 +21,12 @@
 
   - 文档教程：[点击阅读](/zh/FreeRTOS/simulator/README.md)
 
+## USB
+
+- USB 2.0 枚举（USB Enumeration）深入讲解：
+
+  - 文档教程：[点击阅读](/zh/USB/enumeration/README.md)
+
 ## RT-Thread
 
 暂无
